@@ -228,16 +228,73 @@ table.cmp tr.sec td{color:var(--fg);font-weight:800;padding-top:12px}
 .code-in{font-family:var(--f-mono);font-size:22px;letter-spacing:.35em;text-align:center;max-width:220px}
 @media (max-width:480px){.act.acc .lbl{display:none}}
 @media (prefers-reduced-motion:reduce){.dot.sync{animation:none}}
+
+.modal{grid-template-columns:minmax(0,720px);justify-content:center}
+.sheet{width:100%;min-width:0;max-height:calc(100dvh - 32px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+.mbody,.tablewrap{min-width:0}
+
+.part:focus-visible{outline:2px solid var(--rgb);outline-offset:2px}
+.tinfo{grid-column:2/-1;font-size:11.5px;color:var(--muted)}
+.buy{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:4px}
+.buy a{color:var(--fg);text-decoration:none;border:1px solid var(--line2);border-radius:7px;padding:3px 9px;font-weight:700;background:var(--panel3)}
+.buy a:hover{border-color:var(--rgb)}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+#aWiz svg{stroke:var(--c-gpu)}
+.sumbtns{display:flex;gap:6px}
+.wiz{display:flex;flex-direction:column;gap:10px}
+.wq{display:flex;gap:10px;align-items:center;margin-top:6px}
+.wq h3{margin:0;font-family:var(--f-display);font-size:14px}
+.wn{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--rgb);color:#061018;font-weight:800;font-size:12px;flex:none}
+.wchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.wchip{display:flex;flex-direction:column;gap:2px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:10px 12px;cursor:pointer}
+.wchip b{font-size:13px}.wchip small{font-size:11px;color:var(--muted)}
+.wchip.on{border-color:var(--rgb);background:color-mix(in srgb,var(--rgb) 12%,var(--panel2))}
+.mini.big{padding:12px;font-size:14px;margin-top:6px}
+.wfps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:6px 0}
+.wfps div{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:6px 8px;display:flex;flex-direction:column}
+.wfps small{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wfps b{font-family:var(--f-display);font-size:18px}
+.why{margin:4px 0;padding-left:18px;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.cardimg{width:100%;max-width:360px;align-self:center;border-radius:14px;border:1px solid var(--line2)}
+@media (max-width:480px){.wchips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.snd{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;padding:10px;border:1px dashed var(--line2);border-radius:10px}
+.seg.sm button{padding:5px 9px;font-size:11.5px}
+.sndhint{font-size:11.5px;flex-basis:100%}
+
+/* ---------- страницы: политика, поддержка, скриншоты ---------- */
+body.in-page>.top,body.in-page>.layout{display:none!important}
+.page .pgwrap{max-width:760px;margin:0 auto;line-height:1.6;font-size:15px}
+.page h1{font-family:var(--f-display);font-size:22px}
+.page h2{font-size:17px;margin-top:24px}
+.page a{color:var(--rgb)}
+.pgback{display:inline-block;margin-bottom:6px;font-weight:700;text-decoration:none}
+#pg-shots main,#pg-shots .shots{display:flex;flex-direction:column;gap:16px}
+#pg-shots .card{padding:16px;display:flex;flex-direction:column;gap:12px}
+#pg-shots ol{margin:0;padding-left:20px;color:var(--muted)}
+#pg-shots label.pick{display:inline-flex;align-items:center;justify-content:center;background:var(--rgb);color:#061018;font-weight:800;border-radius:12px;padding:12px 16px;cursor:pointer;width:max-content}
+#pg-shots label.pick input{display:none}
+#pg-shots .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#pg-shots .sw{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+#pg-shots .sw.on{border-color:#fff}
+#pg-shots .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+#pg-shots .item{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#pg-shots .item img{width:100%;border-radius:8px;display:block}
+#pg-shots .item textarea{width:100%;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit;resize:vertical;min-height:58px}
+#pg-shots button{font:inherit;cursor:pointer;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:8px 12px;font-weight:700}
+#pg-shots button.pri{background:var(--rgb);border-color:var(--rgb);color:#061018}
 </style>
 </head>
 <body>
 <!--BODY-->
 <div class="top">
-  <div class="brand"><h1>Сборка <b>ПК</b> 3D</h1><span>конфигуратор · цены · FPS</span></div>
+  <div class="brand"><h1>Сборка <b>ПК</b> 3D</h1></div>
   <div class="actions">
     <button class="act" id="aUndo" title="Отменить (Ctrl+Z)" aria-label="Отменить"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 010 10h-3"/></svg></button>
     <button class="act" id="aRedo" title="Повторить (Ctrl+Shift+Z)" aria-label="Повторить"><svg viewBox="0 0 24 24"><path d="M15 14l5-5-5-5"/><path d="M20 9H9a5 5 0 000 10h3"/></svg></button>
     <button class="act wide" id="aBudget"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.6-3-1.5M12 6v2M12 16v2"/></svg>Под бюджет</button>
+    <button class="act wide" id="aWiz"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>За минуту</button>
     <button class="act wide" id="aSaved"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Мои сборки</button>
     <button class="act wide" id="aShare"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Поделиться</button>
     <button class="act acc" id="aAcc" hidden></button>
@@ -291,14 +348,61 @@ table.cmp tr.sec td{color:var(--fg);font-weight:800;padding-top:12px}
       <div class="list" id="list"></div>
     </div>
     <div class="card sum">
-      <div class="sumh"><h3>Твоя сборка</h3><button class="mini" id="bSave">Сохранить</button></div>
+      <div class="sumh"><h3>Твоя сборка</h3><span class="sumbtns"><button class="mini" id="bCard">Карточка</button><button class="mini" id="bSave">Сохранить</button></span></div>
       <div id="rows"></div>
       <div class="stats" id="stats"></div>
+      <div class="snd" id="snd"></div>
       <div class="checks" id="checks"></div>
-      <p class="src"><b id="priceDate">Цены от 1 октября 2026</b> — США, минимальные за модель чипа: <a href="https://www.pcgamer.com/hardware/graphics-cards/graphics-card-price-watch-deals/" target="_blank" rel="noopener">PC Gamer</a>, <a href="https://www.techspot.com/article/3167-gpu-pricing-q3-2026/" target="_blank" rel="noopener">TechSpot</a>, <a href="https://www.tomshardware.com/features/best-cpu-deals" target="_blank" rel="noopener">Tom's Hardware (CPU)</a>, <a href="https://www.tomshardware.com/best-picks/best-motherboards" target="_blank" rel="noopener">Tom's Hardware (платы)</a>, <a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/" target="_blank" rel="noopener">TechFuel (ОЗУ, Newegg)</a>, <a href="https://bottleneckpc.com/blog/ram-ssd-prices-2026-buy-now-or-wait" target="_blank" rel="noopener">BottleneckPC (SSD)</a>. Б/у — средние продажи на eBay: <a href="https://www.getpcparts.com/market-prices" target="_blank" rel="noopener">Get PC Parts</a>, <a href="https://bestvaluegpu.com/history/new-and-used-rx-580-price-history-and-specs/" target="_blank" rel="noopener">Best Value GPU</a> (3 октября 2026). Значок ≈ — ориентировочная цена. Память и SSD в 2026 сильно подорожали из-за дефицита, RTX 5090 почти нет в продаже.</p>
+      <p class="src"><b id="priceDate">Цены от 1 октября 2026</b>. В долларах — цены США, минимальные за модель чипа. В гривнах — минимальные цены Украины с <a href="https://hotline.ua" target="_blank" rel="noopener">Hotline.ua</a> (4 октября 2026), остальное пересчитано по курсу со знаком ≈. Источники США: <a href="https://www.pcgamer.com/hardware/graphics-cards/graphics-card-price-watch-deals/" target="_blank" rel="noopener">PC Gamer</a>, <a href="https://www.techspot.com/article/3167-gpu-pricing-q3-2026/" target="_blank" rel="noopener">TechSpot</a>, <a href="https://www.tomshardware.com/features/best-cpu-deals" target="_blank" rel="noopener">Tom's Hardware (CPU)</a>, <a href="https://www.tomshardware.com/best-picks/best-motherboards" target="_blank" rel="noopener">Tom's Hardware (платы)</a>, <a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/" target="_blank" rel="noopener">TechFuel (ОЗУ, Newegg)</a>, <a href="https://bottleneckpc.com/blog/ram-ssd-prices-2026-buy-now-or-wait" target="_blank" rel="noopener">BottleneckPC (SSD)</a>. Б/у — средние продажи на eBay: <a href="https://www.getpcparts.com/market-prices" target="_blank" rel="noopener">Get PC Parts</a>, <a href="https://bestvaluegpu.com/history/new-and-used-rx-580-price-history-and-specs/" target="_blank" rel="noopener">Best Value GPU</a> (3 октября 2026). Значок ≈ — ориентировочная цена. Память и SSD в 2026 сильно подорожали из-за дефицита, RTX 5090 почти нет в продаже.</p>
     </div>
   </aside>
 </div>
+<section class="page" id="pg-privacy" hidden><div class="pgwrap"><p><a href="#" class="pgback">← Вернуться к сборке</a></p>
+<h1>Политика конфиденциальности</h1>
+<p>Приложение «Сборка ПК 3D» (далее — приложение). Дата вступления в силу: 3 октября 2026 г.</p>
+<h2>Без аккаунта</h2>
+<p>Если вы не входите в аккаунт, приложение не собирает никаких данных. Сборки, настройки и кэш цен хранятся только на вашем устройстве.</p>
+<h2>С аккаунтом (по желанию)</h2>
+<p>Вход нужен только для синхронизации сборок между устройствами. Тогда мы храним:</p>
+<ul><li><b>адрес электронной почты</b> — чтобы отправить код входа;</li><li><b>ваши сохранённые сборки и настройки приложения</b> (выбранные комплектующие, валюта, подсветка) — чтобы показать их на других устройствах.</li></ul>
+<p>Данные хранятся у провайдера Supabase (серверы в ЕС, Франкфурт). Письма с кодом отправляет почтовый сервис. Мы не продаём данные, не используем рекламу, аналитику и слежку и не передаём данные третьим лицам, кроме этих технических сервисов.</p>
+<h2>Удаление данных</h2>
+<p>Удалить аккаунт и все данные на сервере можно в приложении: «Аккаунт → Удалить аккаунт». Удаление происходит сразу и навсегда. Локальные данные удаляются вместе с приложением.</p>
+<h2>Сеть</h2>
+<p>Если есть интернет, приложение скачивает файл с актуальными ценами на комплектующие. При этом на сервер не передаётся ничего, кроме обычного сетевого запроса.</p>
+<h2>Камера</h2>
+<p>Камера используется только в режиме AR, чтобы показать модель компьютера на столе. Изображение с камеры обрабатывается системой iOS на устройстве и никуда не отправляется.</p>
+<h2>Дети</h2>
+<p>Приложение не предназначено для сбора данных детей. Пользоваться им можно без аккаунта.</p>
+<h2>Связь</h2>
+<p>Вопросы о конфиденциальности: <b>timalukyan@gmail.com</b></p>
+</div></section>
+<section class="page" id="pg-support" hidden><div class="pgwrap"><p><a href="#" class="pgback">← Вернуться к сборке</a></p>
+<h1>Поддержка «Сборка ПК 3D»</h1>
+<p>Нашли ошибку или есть идея? Напишите на почту: <span class="mail">timalukyan@gmail.com</span> — отвечаю в течение пары дней.</p>
+<h2>Частые вопросы</h2>
+<p><b>Откуда цены?</b> Цены в долларах — минимальные цены США, в гривнах — минимальные цены Украины (Hotline.ua). Значок ≈ означает примерную цену. Цены обновляются автоматически, когда есть интернет.</p>
+<p><b>Насколько точный FPS?</b> Это оценка по производительности деталей, а не замер. Реальные цифры зависят от игры, патча и драйверов и могут отличаться на 10–20%.</p>
+<p><b>Зачем аккаунт?</b> Только чтобы сборки были на всех ваших устройствах. Всё остальное работает без входа.</p>
+<p><b>Как удалить аккаунт?</b> В приложении: «Аккаунт» → «Удалить аккаунт». Удаляются почта и все сборки на сервере.</p>
+<p><b>Не работает AR.</b> Режим AR работает на iPhone и iPad с iOS 15 и новее. Нужно разрешить доступ к камере.</p>
+<p><a href="#privacy">Политика конфиденциальности</a></p>
+</div></section>
+<section class="page" id="pg-shots" hidden><div class="pgwrap shots"><p><a href="#" class="pgback">← Вернуться к сборке</a></p>
+<h1>Скриншоты для App Store</h1>
+<p>Делает картинки 1290×2796 — этот размер App Store принимает для iPhone 6,9″ и 6,7″. Добавляет подпись сверху и красивый фон.</p>
+<div class="card">
+ <ol>
+  <li>Открой приложение (или сайт) на iPhone и сделай 3–6 скриншотов: 3D-сборка, FPS, «За минуту», «Мои сборки», карточка.</li>
+  <li>Нажми «Выбрать скриншоты» и выбери их из «Фото».</li>
+  <li>Поправь подписи, выбери цвет и нажми «Сохранить» у каждой картинки.</li>
+ </ol>
+ <label class="pick">Выбрать скриншоты<input type="file" id="shF" accept="image/*" multiple></label>
+ <div class="row"><span class="muted">Цвет фона:</span><span id="shSw" class="row"></span></div>
+</div>
+<div class="list" id="shList"></div>
+<p class="muted">Подсказка: если кнопка «Сохранить» не срабатывает, зажми готовую картинку → «Сохранить в Фото».</p>
+</div></section>
 <div class="modal" id="modal" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div class="mhead"><h2 id="mTitle"></h2><button class="mclose" id="mClose" aria-label="Закрыть">✕</button></div><div class="mbody" id="mBody"></div></div></div>
 <div class="toast" id="toast"></div>
 
@@ -322,7 +426,7 @@ table.cmp tr.sec td{color:var(--fg);font-weight:800;padding-top:12px}
    Ключ supabaseKey — публичный (anon / publishable), его можно хранить в приложении.
    НИКОГДА не вставляйте сюда service_role / secret ключ. Инструкция — README.md, раздел «Аккаунты». */
 window.APP_CONFIG={
-  pricesUrl:'',
+  pricesUrl:'https://tima564564.github.io/Games/prices.json',
   supabaseUrl:'https://boksjdofsktwbvlfcwcc.supabase.co',
   supabaseKey:'sb_publishable_1mC3bYnbu4uMGD_xOnOamw_IQQe377m'
 };
@@ -598,6 +702,21 @@ const PRESETS={
 const RGBS=['#4fb3ff','#ff3d6e','#a259ff','#25e2a0','#ffae2b','#ffffff'];
 
 
+/* ---------- цены в Украине (Hotline.ua, минимальная цена, 4 октября 2026) ----------
+   uahA:1 — цена похожей модели (точной в каталоге не было). Без uah — пересчёт по курсу (со знаком ≈). */
+const UAH_DATE='2026-10-04';
+const UAH={
+ gpu:{rtx5060:24587,rtx5060ti8:26100,rtx5070:36999,rtx5070ti:55908,rtx5080:66989,rtx5090:258999,rx9070:30319,rx9070xt:39908},
+ cpu:{'r5-5600':5345,'r5-7500f':5698,'r5-7600x':7280,'r5-9600x':7570,'r7-9700x':10999,'r7-7800x3d':14399,'r7-9800x3d':19492,'r9-9900x':15389,'r9-9950x':21999,'r9-9950x3d':26749,'r7-5800x3d':18149,'i5-14600kf':11940,'i7-14700k':18200,'i9-14900k':20406,'u9-285k':20299},
+ ram:{'veng-rgb32':21999,'venom32':23871,'lpx16':[5792,1],'lpx32':[13999,1]},
+ storage:{nv3:7079,'990pro2':16449,'9100pro2':18489},
+ mobo:{'asus-b550f':[7416,1],'msi-b760p-d4':[6605,1],'msi-b850-tomahawk':[10600,1]},
+ psu:{rm850x:6559,thor1200:[20163,1]},
+ case:{cc560:[2614,1]},
+ cooler:{pa120se:2182,se224:971},
+};
+for(const [cat,m] of Object.entries(UAH))for(const [id,v] of Object.entries(m)){const p=DATA[cat].find(x=>x.id===id);if(!p)continue;if(Array.isArray(v)){p.uah=v[0];p.uahA=1}else p.uah=v}
+
 </script>
 <script>
 /* Экспорт 3D-сборки в USDZ для AR Quick Look (iPhone/iPad).
@@ -741,8 +860,12 @@ const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const part=(b,cat)=>DATA[cat].find(p=>p.id===b[cat])||DATA[cat][0];
 const sel=c=>part(S,c);
 const buildOf=src=>Object.fromEntries(PARTS.map(c=>[c,src[c]]));
-const priceOf=b=>PARTS.reduce((s,c)=>s+part(b,c).price,0);
-const money=n=>S.cur==='₴'?Math.round(n*S.rate).toLocaleString('uk-UA').replace(/[, ]/g,' ')+' ₴':'$'+Math.round(n).toLocaleString('en-US');
+// цена детали в выбранной валюте: в гривнах — реальная цена из Украины (Hotline), если есть, иначе пересчёт по курсу
+const pc=p=>S.cur==='₴'?(p.uah!=null?p.uah:Math.round(p.price*S.rate)):p.price;
+const approx=p=>S.cur==='₴'?(p.uah!=null?!!p.uahA:p.price>0):!!p.a;
+const priceOf=b=>PARTS.reduce((s,c)=>s+pc(part(b,c)),0);
+// money(v): v уже в выбранной валюте
+const money=n=>S.cur==='₴'?Math.round(n).toLocaleString('en-US').replace(/,/g,' ')+' ₴':'$'+Math.round(n).toLocaleString('en-US');
 function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2800)}
 function partColors(cat,p){const c=p.col||{};
  switch(cat){case'cpu':return[p.brand==='AMD'?'#3a3d42':'#2c3e57',bc(p.brand)];case'gpu':return[c.body,c.trim];case'mobo':return[c.pcb,c.hs];case'ram':return[c.hs,p.rgb?'conic-gradient(#f33,#ff3,#3f6,#3cf,#a3f,#f33)':c.hs];
@@ -765,6 +888,7 @@ function checks(b=S){
  else if(p.w<n*1.2)out.push({l:'warn',t:`Блок питания впритык: ≈${n} Вт из ${p.w}. Лучше от ${Math.ceil(n*1.3/50)*50} Вт`,c:'psu'});
  else out.push({l:'ok',t:`Запас по питанию: ≈${n} Вт из ${p.w}`,c:'psu'});
  if(r.gb<16)out.push({l:'warn',t:'8 ГБ памяти мало для современных игр',c:'ram'});
+ {const t=thermals(b);if(t.cpuT>=88)out.push({l:'warn',t:`Процессор будет греться до ≈${t.cpuT}°C — лучше кулер мощнее`,c:'cooler'})}
  return out;
 }
 const QG={low:1.9,med:1.38,high:1,ultra:.78},QC={low:1.12,med:1.05,high:1,ultra:.95},PX={'1080':1,'1440':1.78,'2160':4};
@@ -783,26 +907,55 @@ function fpsFor(gm,b=S){
 const avgFps=(b=S)=>Math.round(Math.exp(GAMES.reduce((s,g)=>s+Math.log(Math.max(1,fpsFor(g,b).f)),0)/GAMES.length));
 const fatalOf=(b=S)=>checks(b).some(x=>x.fatal);
 
+/* ---------- температура и шум (оценка) ---------- */
+function thermals(b=S){
+ const c=part(b,'cpu'),g=part(b,'gpu'),co=part(b,'cooler'),k=part(b,'case');
+ const air=(k.front==='glass'?3:k.front==='solid'?6:0)+(k.form==='compact'?2:0)+(!k.fanN&&k.front!=='glass'?2:0)+(k.side==='open'?-2:0);
+ const ratio=c.tdp*.6/co.tdp; // какую долю возможностей кулера съедает процессор в играх
+ const cpuT=Math.min(100,Math.round(38+ratio*55+air+(/X3D/.test(c.name)?6:0)));
+ const gl=g.igpu?0:g.tdp/(Math.max(2,g.slots)*100);
+ const gpuT=g.igpu?null:Math.round(52+gl*12+air);
+ const cpuDb={box:37,tower:29,dual:27,aio:30}[co.kind]+Math.min(1.6,ratio)*8;
+ const gpuDb=g.igpu?0:24+gl*12+(g.fans===1?3:0);
+ const caseDb=22+((k.fanN||0)+1)*1.5;
+ const e=x=>x?Math.pow(10,x/10):0;
+ return {cpuT,gpuT,db:Math.round(10*Math.log10(e(cpuDb)+e(gpuDb)+e(caseDb)+e(18)))};
+}
+const noiseName=d=>d<30?'почти бесшумно':d<34?'тихо, как шёпот':d<38?'слышно в тишине':d<42?'как вытяжка на кухне':d<46?'шумно':'очень громко';
+const tempCol=t=>t<70?'var(--good)':t<84?'var(--warn)':'var(--bad)';
+/* ---------- где купить ---------- */
+const shortName=p=>(p.maker&&p.maker!==p.brand?'':'')+p.name.replace(/\s*\(.*?\)\s*/g,' ').replace(/\s+(White|Pulse|Challenger|Windforce|Reaper|Dual|Swift|Hellhound|Twin Edge|TUF Gaming|Aorus Master|ROG Astral|Gaming Trio|Ventus 2X|Limited Edition|Ventus|Red Dragon|Gaming X|OC|TUF|Speedster|Windforce)\b.*$/i,'').trim();
+const hotlineUrl=p=>'https://hotline.ua/ua/sr/?q='+encodeURIComponent((p.maker?shortName(p):p.name).replace(/\s+/g,' '));
+const olxUrl=p=>'https://www.olx.ua/uk/list/q-'+encodeURIComponent(shortName(p).replace(/\s+/g,'-'))+'/';
+
 /* ---------- подбор под бюджет ---------- */
-function bestForBudget(budget){
- const cheapest=a=>a.reduce((x,y)=>x.price<=y.price?x:y);
- const ssd=cheapest(DATA.storage.filter(s=>s.kind!=='hdd'));
+function bestForBudget(budget,o={}){ // budget — в выбранной валюте; o: {used:false, style:'white'|'rgb', score:fn}
+ const cheapest=a=>a.reduce((x,y)=>pc(x)<=pc(y)?x:y);
+ const okU=p=>o.used!==false||!p.u;const L=c=>DATA[c].filter(okU);
+ const lightHex=h=>{if(!h||h[0]!=='#')return false;const n=parseInt(h.slice(1),16);return ((n>>16&255)*.299+(n>>8&255)*.587+(n&255)*.114)>170};
+ const PREF={white:{case:p=>lightHex(p.col.body),cooler:p=>lightHex(p.col.top||p.col.rad),ram:p=>lightHex(p.col.hs),mobo:p=>lightHex(p.col.pcb)||lightHex(p.col.hs)},
+  rgb:{case:p=>p.front!=='solid'&&p.side!=='open',cooler:p=>!!p.rgbFan,ram:p=>!!p.rgb}}[o.style]||{};
+ const pref=(cat,list)=>{const f=PREF[cat];if(!f)return list;const l=list.filter(f);return l.length?l:list};
+ const score=o.score||avgFps;
+ const ssd=cheapest(L('storage').filter(s=>s.kind!=='hdd'));
+ const cases=pref('case',L('case')),coolers=pref('cooler',L('cooler'));
  let best=null;
- for(const c of DATA.cpu)for(const m of DATA.mobo){if(m.socket!==c.socket)continue;
-  const rams=DATA.ram.filter(r=>r.type===m.ram);
-  const ramOpts=[...new Set([8,16,32].map(gb=>rams.filter(r=>r.gb===gb)).filter(a=>a.length).map(cheapest))];
-  for(const r of ramOpts)for(const g of DATA.gpu){if(g.igpu&&!c.igpu)continue;
-   const n=c.tdp+g.tdp+75;const ps=DATA.psu.filter(p=>p.w>=n*1.2);if(!ps.length)continue;const p=cheapest(ps);
-   let cc=null;for(const k of DATA.case){if(g.len>k.gpuMax)continue;for(const co of DATA.cooler){if(co.tdp<c.tdp*.9||(co.rad&&co.rad>k.rad)||(co.h&&co.h>k.coolerMax))continue;const cost=k.price+co.price;if(!cc||cost<cc.cost)cc={k,co,cost}}}
-   if(!cc)continue;
-   const total=c.price+m.price+r.price+g.price+p.price+cc.cost+ssd.price;if(total>budget)continue;
-   const b={cpu:c.id,mobo:m.id,ram:r.id,gpu:g.id,psu:p.id,case:cc.k.id,cooler:cc.co.id,storage:ssd.id};
-   const sc=avgFps(b);
-   if(!best||sc>best.sc*1.01||(sc>=best.sc*.99&&total<best.total))best={b,sc,total};
-  }}
+ for(const c of L('cpu')){const mobos=pref('mobo',L('mobo').filter(m=>m.socket===c.socket));
+  for(const m of mobos){
+   const rams=pref('ram',L('ram').filter(r=>r.type===m.ram));
+   const ramOpts=[...new Set([8,16,32].map(gb=>rams.filter(r=>r.gb===gb)).filter(a=>a.length).map(cheapest))];
+   for(const r of ramOpts)for(const g of L('gpu')){if(g.igpu&&!c.igpu)continue;
+    const n=c.tdp+g.tdp+75;const ps=L('psu').filter(p=>p.w>=n*1.2);if(!ps.length)continue;const p=cheapest(ps);
+    let cc=null;for(const k of cases){if(g.len>k.gpuMax)continue;for(const co of coolers){if(co.tdp<c.tdp*.9||(co.rad&&co.rad>k.rad)||(co.h&&co.h>k.coolerMax))continue;const cost=pc(k)+pc(co);if(!cc||cost<cc.cost)cc={k,co,cost}}}
+    if(!cc)continue;
+    const total=pc(c)+pc(m)+pc(r)+pc(g)+pc(p)+cc.cost+pc(ssd);if(total>budget)continue;
+    const b={cpu:c.id,mobo:m.id,ram:r.id,gpu:g.id,psu:p.id,case:cc.k.id,cooler:cc.co.id,storage:ssd.id};
+    const sc=score(b);
+    if(!best||sc>best.sc*1.01||(sc>=best.sc*.99&&total<best.total))best={b,sc,total};
+   }}}
  if(best){ // остаток бюджета — на SSD побольше
-  const left=budget-best.total;const up=DATA.storage.filter(s=>s.kind!=='hdd'&&s.kind!=='sata'&&s.price>ssd.price&&s.price-ssd.price<=left).sort((a,b)=>b.price-a.price)[0];
-  if(up){best.b.storage=up.id;best.total+=up.price-ssd.price}}
+  const left=budget-best.total;const up=L('storage').filter(s=>s.kind!=='hdd'&&s.kind!=='sata'&&pc(s)>pc(best.b.storage?part(best.b,'storage'):ssd)&&pc(s)-pc(ssd)<=left).sort((a,b)=>pc(b)-pc(a))[0];
+  if(up){best.b.storage=up.id;best.total+=pc(up)-pc(ssd)}}
  return best;
 }
 
@@ -844,7 +997,7 @@ $('#rate').oninput=e=>{const v=parseFloat(e.target.value);if(v>0){S.rate=v;reren
 
 function renderTabs(){
  const bad=new Set(checks().filter(x=>x.l==='bad').map(x=>x.c));
- $('#tabs').innerHTML=CATS.map((c,i)=>`<button class="tab${S.tab===c.id?' on':''}${bad.has(c.id)?' err':''}" style="--tc:var(--c-${c.id})" data-t="${c.id}" title="${c.name} (${i+1})"><svg viewBox="0 0 24 24">${c.ico}</svg><span>${c.name}</span><small>${money(sel(c.id).price)}</small></button>`).join('');
+ $('#tabs').innerHTML=CATS.map((c,i)=>`<button class="tab${S.tab===c.id?' on':''}${bad.has(c.id)?' err':''}" style="--tc:var(--c-${c.id})" data-t="${c.id}" title="${c.name} (${i+1})"><svg viewBox="0 0 24 24">${c.ico}</svg><span>${c.name}</span><small>${money(pc(sel(c.id)))}</small></button>`).join('');
 }
 function openTab(t){if(S.tab!==t){F.q='';F.brand='all';$('#q').value=''}S.tab=t;renderTabs();renderList();focusPart(t);save()}
 $('#tabs').onclick=e=>{const b=e.target.closest('[data-t]');if(b)openTab(b.dataset.t)};
@@ -869,19 +1022,22 @@ function renderList(){
  $('#bchips').innerHTML=(nu?[['all','Все'],['new','Новые'],['used','Б/у']].map(([v,t])=>`<button class="bchip cond${F.cond===v?' on':''}" data-c="${v}">${t}</button>`).join('')+'<span class="sep"></span>':'')+`<button class="bchip${F.brand==='all'?' on':''}" data-b="all">Все бренды · ${items.length}</button>`+brands.map(b=>`<button class="bchip${F.brand===b?' on':''}" style="--bc:${bc(b)}" data-b="${b}"><i></i>${b}</button>`).join('');
  const q=F.q.toLowerCase().trim();
  let list=items.filter(p=>(F.brand==='all'||p.brand===F.brand)&&(F.cond==='all'||(F.cond==='used')===!!p.u)&&(!q||(p.name+' '+p.spec+' '+(p.maker||'')+' '+p.brand).toLowerCase().includes(q)));
- const s=F.sort;list=[...list].sort((a,b)=>s==='price'?a.price-b.price:s==='-price'?b.price-a.price:perfOf(cat,b)-perfOf(cat,a));
+ const s=F.sort;list=[...list].sort((a,b)=>s==='price'?pc(a)-pc(b):s==='-price'?pc(b)-pc(a):perfOf(cat,b)-perfOf(cat,a));
  const maxScore=cat==='cpu'?101:128,cur=sel(cat);
  let h='';
  for(const p of list){
-  const on=S[cat]===p.id,hn=hint(cat,p),[c1,c2]=partColors(cat,p);const d=p.price-cur.price;
-  h+=`<button class="part${on?' on':''}" style="--tc:var(--c-${cat})" data-id="${p.id}"><span class="swb" style="background:${c1};--s2:${c2}"></span><span class="pn">${p.u?'<span class="bdg used">Б/У</span>':''}<span class="bdg" style="--bc:${bc(p.brand)}">${p.brand}</span>${p.maker&&p.maker!==p.brand?`<span class="bdg" style="--bc:${bc(p.maker)}">${p.maker}</span>`:''}${p.name}</span><span class="pp">${p.price?(p.a?'≈':'')+money(p.price):'в комплекте'}${!on&&d?`<small>${d>0?'+':'−'}${money(Math.abs(d))}</small>`:''}</span><span class="ps">${p.spec}</span>`;
+  const on=S[cat]===p.id,hn=hint(cat,p),[c1,c2]=partColors(cat,p);const d=pc(p)-pc(cur);
+  h+=`<div class="part${on?' on':''}" style="--tc:var(--c-${cat})" data-id="${p.id}" role="button" tabindex="0" aria-pressed="${on}"><span class="swb" style="background:${c1};--s2:${c2}"></span><span class="pn">${p.u?'<span class="bdg used">Б/У</span>':''}<span class="bdg" style="--bc:${bc(p.brand)}">${p.brand}</span>${p.maker&&p.maker!==p.brand?`<span class="bdg" style="--bc:${bc(p.maker)}">${p.maker}</span>`:''}${p.name}</span><span class="pp">${p.price?(approx(p)?'≈':'')+money(pc(p)):'в комплекте'}${!on&&d?`<small>${d>0?'+':'−'}${money(Math.abs(d))}</small>`:''}</span><span class="ps">${p.spec}</span>`;
   if(p.score)h+=`<span class="perf"><span class="bar"><div style="width:${p.score/maxScore*100}%;background:var(--c-${cat})"></div></span><span>${p.score}</span></span>`;
+  if(cat==='cooler'){const t=thermals({...S,cooler:p.id});h+=`<span class="tinfo">с твоим процессором ≈ <b style="color:${tempCol(t.cpuT)}">${t.cpuT}°C</b> · шум сборки ≈ ${t.db} дБ</span>`}
   if(hn)h+=`<span class="pw${hn.b?' bad':''}">${hn.t}</span>`;
-  h+=`</button>`;
+  if(on&&p.price)h+=`<span class="buy">Где купить: ${p.u?'':`<a href="${hotlineUrl(p)}" target="_blank" rel="noopener">Hotline</a>`}<a href="${olxUrl(p)}" target="_blank" rel="noopener">OLX${p.u?'':' (б/у)'}</a></span>`;
+  h+=`</div>`;
  }
  $('#list').innerHTML=h||'<div class="empty">Ничего не нашлось. Сбрось фильтр или поиск.</div>';
 }
-$('#list').onclick=e=>{const b=e.target.closest('[data-id]');if(b)pick(S.tab,b.dataset.id)};
+$('#list').onclick=e=>{if(e.target.closest('a'))return;const b=e.target.closest('[data-id]');if(b)pick(S.tab,b.dataset.id)};
+$('#list').onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-id]')){e.preventDefault();pick(S.tab,e.target.dataset.id)}};
 $('#bchips').onclick=e=>{const c=e.target.closest('[data-c]');if(c){F.cond=c.dataset.c;renderList();return}const b=e.target.closest('[data-b]');if(!b)return;F.brand=b.dataset.b;renderList()};
 $('#q').oninput=e=>{F.q=e.target.value;renderList()};
 $('#sort').onchange=e=>{F.sort=e.target.value;renderList()};
@@ -900,13 +1056,15 @@ function pick(cat,id){
  Plat.haptic();changed([...rebuild]);
 }
 function renderSummary(){
- $('#rows').innerHTML=CATS.map(c=>{const p=sel(c.id);return `<button class="row" style="--tc:var(--c-${c.id})" data-t="${c.id}"><i></i><span class="rk">${c.name}</span><span class="rv">${p.name}</span><span class="rp">${p.price?(p.a?'≈':'')+money(p.price):'—'}</span></button>`}).join('');
+ $('#rows').innerHTML=CATS.map(c=>{const p=sel(c.id);return `<button class="row" style="--tc:var(--c-${c.id})" data-t="${c.id}"><i></i><span class="rk">${c.name}</span><span class="rv">${p.name}</span><span class="rp">${p.price?(approx(p)?'≈':'')+money(pc(p)):'—'}</span></button>`}).join('');
  const total=priceOf(S);$('#price').textContent=money(total);
  const fatal=fatalOf();const avg=fatal?0:avgFps();
  const lims=fatal?null:GAMES.map(g=>fpsFor(g).lim);const nG=lims?lims.filter(x=>x==='gpu').length:0,nC=lims?lims.filter(x=>x==='cpu').length:0;
  const bal=!lims?'—':nC>nG?`CPU · ${nC}/${GAMES.length}`:`GPU · ${nG}/${GAMES.length}`;
+ const th=thermals();
  $('#stats').innerHTML=`<div class="stat"><div class="k">Потребление</div><div class="v">≈${need()} Вт</div></div><div class="stat"><div class="k">Загрузка игры</div><div class="v">${sel('storage').load} с</div></div><div class="stat"><div class="k">Видеопамять</div><div class="v">${sel('gpu').vram} ГБ</div></div>`+
-  `<div class="stat"><div class="k">Средний FPS</div><div class="v">${avg||'—'}</div></div><div class="stat"><div class="k">Цена за кадр</div><div class="v">${avg?money(total/avg):'—'}</div></div><div class="stat" title="Во что чаще упирается сборка"><div class="k">Чаще упор в</div><div class="v">${bal}</div></div>`;
+  `<div class="stat"><div class="k">Средний FPS</div><div class="v">${avg||'—'}</div></div><div class="stat"><div class="k">Цена за кадр</div><div class="v">${avg?money(total/avg):'—'}</div></div><div class="stat" title="Во что чаще упирается сборка"><div class="k">Чаще упор в</div><div class="v">${bal}</div></div>`+
+  `<div class="stat" title="Температура процессора в играх"><div class="k">CPU в играх</div><div class="v" style="color:${tempCol(th.cpuT)}">≈${th.cpuT}°C</div></div><div class="stat" title="Температура видеокарты в играх"><div class="k">Видеокарта</div><div class="v" style="color:${th.gpuT?tempCol(th.gpuT):'inherit'}">${th.gpuT?'≈'+th.gpuT+'°C':'—'}</div></div><div class="stat" title="${noiseName(th.db)}"><div class="k">Шум в играх</div><div class="v">≈${th.db} дБ</div><div class="k">${noiseName(th.db)}</div></div>`;
  $('#checks').innerHTML=checks().map(x=>`<div class="chk ${x.l}"><i></i><span>${x.t}</span></div>`).join('');
  $('#priceDate').textContent='Цены от '+fmtDate(PRICE_INFO.updated)+(PRICE_INFO.server?' (обновлены с сервера)':'');
 }
@@ -941,7 +1099,7 @@ function renderFps(){
 }
 function hud(cat){const c=CATS.find(x=>x.id===cat),p=sel(cat);$('#hudN').textContent=(p.maker&&p.maker!==p.brand?p.maker+' ':'')+p.name;$('#hudT').textContent=c.name.toUpperCase()+' · '+p.brand.toUpperCase();$('#hudT').style.setProperty('--hc',`var(--c-${cat})`)}
 function rerender(){renderPresets();renderTabs();renderList();renderSummary();renderFps()}
-function changed(cats,o={}){rerender();save();if(!o.noHist)pushHist();if(window.R3)R3.rebuild(cats);hud(S.tab)}
+function changed(cats,o={}){rerender();save();if(typeof Snd!=='undefined')Snd.update();if(!o.noHist)pushHist();if(window.R3)R3.rebuild(cats);hud(S.tab)}
 function focusPart(cat){hud(cat);if(window.R3)R3.flash(cat)}
 
 /* ============================== МОДАЛЬНЫЕ ОКНА ============================== */
@@ -990,11 +1148,11 @@ function budgetModal(){
  openModal('Подбор под бюджет',`<p class="muted">Подберём самую быструю совместимую сборку в пределах бюджета под текущие настройки: ${resName}, пресет «${{low:'низкие',med:'средние',high:'высокие',ultra:'ультра'}[S.q]}». Цены — из каталога.</p>
   <div class="field"><input class="inp" id="bgVal" type="number" min="300" step="50" inputmode="numeric" value="${def}" aria-label="Бюджет"><span class="muted">${cur==='₴'?'₴':'$'}</span><button class="mini pri" id="bgGo">Подобрать</button></div>
   <div class="field">${[100,200,300,500,800,1200,2500].map(v=>`<button class="mini" data-v="${cur==='₴'?Math.round(v*S.rate/1000)*1000:v}">${cur==='₴'?(Math.round(v*S.rate/1000))+' тыс ₴':'$'+v}</button>`).join('')}</div><div id="bgRes"></div>`,body=>{
-  const run=()=>{let v=parseFloat(body.querySelector('#bgVal').value);if(!(v>0))return;const usd=cur==='₴'?v/S.rate:v;const r=bestForBudget(usd);const out=body.querySelector('#bgRes');
+  const run=()=>{let v=parseFloat(body.querySelector('#bgVal').value);if(!(v>0))return;const r=bestForBudget(v);const out=body.querySelector('#bgRes');
    if(!r){out.innerHTML=`<div class="result"><b>Не получилось уложиться.</b><span class="muted">Самая дешёвая рабочая сборка в каталоге стоит больше. Попробуй увеличить бюджет.</span></div>`;return}
    out.innerHTML=`<div class="result"><div class="rr"><span>Итого</span><span class="big">${money(r.total)}</span></div><div class="rr"><span>Средний FPS (${resName})</span><span>${r.sc}</span></div>${CATS.map(c=>`<div class="rr"><span>${c.name}</span><span>${part(r.b,c.id).name}</span></div>`).join('')}<div class="field"><button class="mini pri" id="bgApply">Применить сборку</button><button class="mini" id="bgSave">Применить и сохранить</button></div></div>`;
    out.querySelector('#bgApply').onclick=()=>{Object.assign(S,r.b);changed('all');closeModal();toast('Сборка под бюджет готова');Plat.haptic('success')};
-   out.querySelector('#bgSave').onclick=()=>{Object.assign(S,r.b);changed('all');saveCurrent('Под бюджет '+money(usd));closeModal();toast('Сборка применена и сохранена')}};
+   out.querySelector('#bgSave').onclick=()=>{Object.assign(S,r.b);changed('all');saveCurrent('Под бюджет '+money(v));closeModal();toast('Сборка применена и сохранена')}};
   body.querySelector('#bgGo').onclick=run;body.querySelector('#bgVal').onkeydown=e=>{if(e.key==='Enter')run()};
   body.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{body.querySelector('#bgVal').value=b.dataset.v;run()});
  });
@@ -1024,7 +1182,160 @@ $('#aAbout').onclick=()=>openModal('О приложении',`<div class="about"
  <p><b>FPS</b> — оценка по модели производительности, а не замер. Реальные цифры зависят от игры, патча и драйверов.</p>
  <p><b>Конфиденциальность.</b> Без входа приложение не собирает данные: сборки и настройки хранятся только на устройстве. ${ACC()&&Account.enabled?'Если войти в аккаунт, почта и сборки хранятся на сервере для синхронизации; аккаунт можно удалить в любой момент. ':''}Камера используется только в режиме AR и только на устройстве.</p>
  <p><b>Торговые марки.</b> Названия товаров и брендов принадлежат их владельцам и указаны только для описания комплектующих. Приложение не связано с этими компаниями.</p>
+ <p><a href="#privacy" onclick="closeModal()">Политика конфиденциальности</a> · <a href="#support" onclick="closeModal()">Поддержка</a> · <a href="#shots" onclick="closeModal()">Скриншоты для App Store</a></p>
  <p><b>Горячие клавиши:</b> <span class="kbd">1</span>–<span class="kbd">8</span> вкладки, <span class="kbd">E</span> разобрать, <span class="kbd">R</span> вращение, <span class="kbd">Ctrl+Z</span> отменить, <span class="kbd">Ctrl+Shift+Z</span> повторить.</p></div>`);
+
+
+/* ---------- «Собери за минуту»: несколько вопросов → готовая сборка ---------- */
+const WZ={games:'all',mon:'1080-144',style:'any',used:true};
+const MONS={'1080-60':['1080',60,'1080p · 60 Гц'],'1080-144':['1080',144,'1080p · 144 Гц'],'1080-240':['1080',300,'1080p · 240+ Гц'],'1440-144':['1440',144,'1440p · 144 Гц'],'2160-60':['2160',75,'4K · 60 Гц']};
+const GSETS={e:['Киберспорт','CS2, Valorant, Dota 2, Fortnite',['cs2','val','dota','fn','r6','apex','pubg','wz']],a:['Тяжёлые игры','Cyberpunk, RDR 2, Black Myth, GTA',['cp','rdr','bmw','gta','er']],s:['Простые игры','Minecraft, Roblox, Dota 2',['mc','rbx','dota','fn']],all:['Всё подряд','все 17 игр',null]};
+function wizardModal(){
+ const cur=S.cur,conv=v=>cur==='₴'?Math.round(v*S.rate/1000)*1000:v,lab=v=>cur==='₴'?Math.round(v*S.rate/1000)+' тыс ₴':'$'+v;
+ const grp=(key,opts)=>`<div class="wchips" data-k="${key}">${opts.map(([v,t,sub])=>`<button class="wchip${String(WZ[key])===String(v)?' on':''}" data-v="${v}"><b>${t}</b>${sub?`<small>${sub}</small>`:''}</button>`).join('')}</div>`;
+ openModal('Собери за минуту',`<div class="wiz">
+  <div class="wq"><span class="wn">1</span><h3>Сколько готов потратить?</h3></div>
+  <div class="field"><input class="inp" id="wzB" type="number" inputmode="numeric" min="100" step="50" value="${WZ.budget||conv(800)}" aria-label="Бюджет"><span class="muted">${cur==='₴'?'₴':'$'}</span></div>
+  <div class="field">${[300,500,800,1200,2000].map(v=>`<button class="mini" data-b="${conv(v)}">${lab(v)}</button>`).join('')}</div>
+  <div class="wq"><span class="wn">2</span><h3>Во что играешь?</h3></div>${grp('games',Object.entries(GSETS).map(([k,v])=>[k,v[0],v[1]]))}
+  <div class="wq"><span class="wn">3</span><h3>Какой монитор?</h3></div>${grp('mon',Object.entries(MONS).map(([k,v])=>[k,v[2]]))}
+  <div class="wq"><span class="wn">4</span><h3>Внешний вид</h3></div>${grp('style',[['any','Не важно'],['rgb','RGB-подсветка'],['white','Белая сборка']])}
+  <div class="wq"><span class="wn">5</span><h3>Б/у детали</h3></div>${grp('used',[['true','Можно','дешевле'],['false','Только новые']])}
+  <button class="mini pri big" id="wzGo">Собрать</button><div id="wzR"></div></div>`,body=>{
+  body.querySelectorAll('.wchips').forEach(g=>g.onclick=e=>{const b=e.target.closest('[data-v]');if(!b)return;const k=g.dataset.k;WZ[k]=k==='used'?b.dataset.v==='true':b.dataset.v;g.querySelectorAll('.wchip').forEach(x=>x.classList.toggle('on',x===b));Plat.haptic()});
+  body.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{body.querySelector('#wzB').value=b.dataset.b});
+  body.querySelector('#wzGo').onclick=()=>{
+   const budget=parseFloat(body.querySelector('#wzB').value);if(!(budget>0))return toast('Укажи бюджет');WZ.budget=budget;
+   const [res,hz,monName]=MONS[WZ.mon],ids=GSETS[WZ.games][2],G=ids?GAMES.filter(g=>ids.includes(g.id)):GAMES;
+   const keep={res:S.res,q:S.q,up:S.up};S.res=res;S.q='high';S.up=false;
+   const score=b=>Math.exp(G.reduce((s,g)=>s+Math.log(Math.max(1,Math.min(fpsFor(g,b).f,hz*1.1))),0)/G.length);
+   let r=null,fp=[];
+   try{r=bestForBudget(budget,{used:WZ.used,style:WZ.style,score});if(r)fp=G.slice(0,6).map(g=>[g.name,fpsFor(g,r.b).f])}finally{Object.assign(S,keep)}
+   const out=body.querySelector('#wzR');
+   if(!r){out.innerHTML=`<div class="result"><b>Не уложились.</b><span class="muted">С такими условиями ничего не собрать. Увеличь бюджет${WZ.used?'':' или разреши б/у детали'}.</span></div>`;return}
+   const why=[];
+   if(WZ.games==='e')why.push(`В киберспорте важен процессор — взяли ${part(r.b,'cpu').name}.`);
+   if(WZ.games==='a')why.push(`В тяжёлых играх всё решает видеокарта — взяли ${part(r.b,'gpu').name}.`);
+   if(WZ.games==='s')why.push('Minecraft и Roblox нетребовательные — сэкономили на видеокарте.');
+   if(WZ.games==='all')why.push('Баланс процессора и видеокарты для разных игр.');
+   if(budget-r.total>budget*.12)why.push(`Остаток ${money(budget-r.total)}: на мониторе ${monName} больше FPS всё равно не увидишь — эти деньги лучше оставить на монитор или мышь.`);
+   if(WZ.style!=='any')why.push(WZ.style==='white'?'Подобрали белые детали, где они есть в каталоге.':'Подобрали детали с RGB-подсветкой и корпус со стеклом.');
+   const nu=PARTS.filter(c=>part(r.b,c).u).length;if(nu)why.push(`Б/у деталей: ${nu}. При покупке проверяй их работу у продавца.`);
+   if(r.sc<40)why.push(`Для монитора ${monName} бюджета мало: в среднем ≈${Math.round(r.sc)} FPS. Можно поставить разрешение ниже или увеличить бюджет.`);
+   const th=thermals(r.b);why.push(`Процессор в играх ≈ ${th.cpuT}°C, шум ≈ ${th.db} дБ (${noiseName(th.db)}).`);
+   out.innerHTML=`<div class="result"><div class="rr"><span>Итого</span><span class="big">${money(r.total)}</span></div>
+    ${CATS.map(c=>{const p=part(r.b,c.id);return `<div class="rr"><span>${c.name}</span><span>${p.u?'б/у · ':''}${p.name}</span></div>`}).join('')}
+    <div class="wfps">${fp.map(([n,f])=>`<div><small>${n}</small><b style="color:${fcol(f)}">${f}</b></div>`).join('')}</div>
+    <ul class="why">${why.map(w=>`<li>${esc(w)}</li>`).join('')}</ul>
+    <div class="field"><button class="mini pri" id="wzApply">Применить</button><button class="mini" id="wzSave">Применить и сохранить</button></div></div>`;
+   const apply=()=>{Object.assign(S,r.b);S.res=res;segs();changed('all');closeModal();Plat.haptic('success')};
+   out.querySelector('#wzApply').onclick=()=>{apply();toast('Сборка готова')};
+   out.querySelector('#wzSave').onclick=()=>{apply();saveCurrent(`За минуту: ${GSETS[WZ.games][0]}, ${money(budget)}`);toast('Сборка готова и сохранена')};
+   out.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+ });
+}
+$('#aWiz').onclick=wizardModal;
+
+/* ---------- карточка сборки для TikTok / Stories (1080×1920) ---------- */
+const loadImg=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src});
+function rrPath(x,X,Y,W,H,R){x.beginPath();x.moveTo(X+R,Y);x.arcTo(X+W,Y,X+W,Y+H,R);x.arcTo(X+W,Y+H,X,Y+H,R);x.arcTo(X,Y+H,X,Y,R);x.arcTo(X,Y,X+W,Y,R);x.closePath()}
+async function makeCard(){
+ if(document.fonts&&document.fonts.ready)await document.fonts.ready;
+ const W=1080,H=1920,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+ const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+ const acc=css('--rgb')||'#4fb3ff',F=(w,sz,f='Manrope')=>`${w} ${sz}px "${f}", system-ui, sans-serif`;
+ x.fillStyle='#07090d';x.fillRect(0,0,W,H);
+ const g=x.createRadialGradient(W/2,640,40,W/2,640,820);g.addColorStop(0,acc+'66');g.addColorStop(1,'rgba(7,9,13,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.textBaseline='alphabetic';x.fillStyle='#8c95a6';x.font=F(700,30,'JetBrains Mono');x.fillText('МОЯ СБОРКА ПК',64,104);
+ x.fillStyle='#e8ebf1';x.font=F(800,92,'Unbounded');x.fillText(money(priceOf(S)),64,206);
+ const fatal=fatalOf(),avg=fatal?0:avgFps();
+ x.textAlign='right';x.fillStyle=acc;x.font=F(800,64,'Unbounded');x.fillText(avg?String(avg):'—',W-64,190);x.fillStyle='#8c95a6';x.font=F(700,24,'JetBrains Mono');x.fillText('СРЕДНИЙ FPS',W-64,104);x.textAlign='left';
+ const box=[56,250,968,800];x.save();rrPath(x,...box,40);x.clip();x.fillStyle='#0b0e14';x.fillRect(...box);
+ const shot=window.R3&&R3.snapshot?R3.snapshot():null,im=shot?await loadImg(shot):null;
+ if(im){const sc=Math.max(box[2]/im.width,box[3]/im.height),iw=im.width*sc,ih=im.height*sc;x.drawImage(im,box[0]+(box[2]-iw)/2,box[1]+(box[3]-ih)/2,iw,ih)}
+ else{x.fillStyle='#1e2533';x.font=F(800,120,'Unbounded');x.textAlign='center';x.fillText('ПК',W/2,box[1]+box[3]/2+40);x.textAlign='left'}
+ x.restore();x.strokeStyle='rgba(255,255,255,.08)';x.lineWidth=2;rrPath(x,...box,40);x.stroke();
+ const top=['cs2','val','fn','dota','cp','gta'].map(id=>GAMES.find(q=>q.id===id));
+ top.forEach((gm,i)=>{const bx=56+(i%3)*328,by=1080+Math.floor(i/3)*168,bw=312,bh=152;
+  x.fillStyle='#121722';rrPath(x,bx,by,bw,bh,24);x.fill();x.fillStyle=gm.gc;x.fillRect(bx,by+24,6,bh-48);
+  x.fillStyle='#8c95a6';x.font=F(700,26);x.fillText(gm.name.length>18?gm.name.slice(0,17)+'…':gm.name,bx+30,by+50);
+  const f=fatal?'—':String(fpsFor(gm).f),n=+f;x.fillStyle=fatal?'#5f6878':n<60?'#ffb240':n<144?'#ffd166':'#3fd17f';x.font=F(800,62,'Unbounded');x.fillText(f,bx+30,by+124);
+  const wv=x.measureText(f).width;x.fillStyle='#5f6878';x.font=F(700,22,'JetBrains Mono');x.fillText('FPS',bx+30+wv+12,by+122)});
+ let y=1450;
+ for(const c of CATS){const p=sel(c.id);x.fillStyle=css('--c-'+c.id)||'#888';x.beginPath();x.arc(74,y-10,8,0,Math.PI*2);x.fill();
+  x.fillStyle='#8c95a6';x.font=F(700,26);x.fillText(c.name,96,y);
+  x.fillStyle='#e8ebf1';x.font=F(800,28);let t=(p.u?'б/у · ':'')+p.name;while(x.measureText(t).width>W-64-330&&t.length>4)t=t.slice(0,-2);if(t!==(p.u?'б/у · ':'')+p.name)t+='…';x.fillText(t,330,y);
+  y+=50}
+ x.fillStyle='rgba(255,255,255,.08)';x.fillRect(64,1852,W-128,2);
+ x.fillStyle='#8c95a6';x.font=F(700,26);x.fillText(`${{'1080':'1080p','1440':'1440p','2160':'4K'}[S.res]} · ${{low:'низкие',med:'средние',high:'высокие',ultra:'ультра'}[S.q]} настройки`,64,1896);
+ x.textAlign='right';x.fillStyle='#e8ebf1';x.font=F(800,30,'Unbounded');x.fillText('Сборка ПК 3D',W-64,1898);x.textAlign='left';
+ return cv;
+}
+async function cardModal(){
+ openModal('Карточка для TikTok и Stories','<p class="muted">Готовлю картинку…</p>');
+ const cv=await makeCard(),url=cv.toDataURL('image/png');
+ const canShare=Plat.isNative||!Plat.embedded;
+ $('#mBody').innerHTML=`<img class="cardimg" src="${url}" alt="Карточка сборки: цена, FPS и комплектующие"><p class="muted">${canShare?'Нажми «Поделиться», чтобы сохранить в «Фото» или отправить в TikTok, Instagram, Telegram.':'Зажми картинку (или правый клик) → «Сохранить изображение». Потом выложи её в TikTok или Stories.'} Совет: поставь в 3D красивый ракурс перед созданием карточки.</p>${canShare?'<div class="field"><button class="mini pri" id="cdShare">Поделиться</button></div>':''}`;
+ const b=$('#cdShare');if(b)b.onclick=async()=>{const blob=await (await fetch(url)).blob();const r=await Plat.shareFile('sborka-pk.png',blob,'image/png');if(r==='saved')toast('Картинка сохранена')};
+}
+$('#bCard').onclick=cardModal;
+
+
+/* ---------- «Послушать»: синтез шума сборки (Web Audio) ---------- */
+const Snd=(()=>{
+ let ctx=null,master=null,buf=null,nodes=[],on=false,mode='load';
+ const el=$('#snd');
+ function profile(b,load){ // из чего складывается шум: кулер CPU, видеокарта, вентиляторы корпуса, блок питания
+  const c=part(b,'cpu'),g=part(b,'gpu'),co=part(b,'cooler'),k=part(b,'case');
+  const ratio=c.tdp*(load?.6:.15)/co.tdp,out=[];
+  const crpm=co.kind==='box'?1700+Math.min(1.6,ratio)*1300:500+Math.min(1.6,ratio)*900;
+  out.push({db:{box:37,tower:29,dual:27,aio:30}[co.kind]+Math.min(1.6,ratio)*8-(load?0:3),rpm:crpm,blades:co.kind==='box'?9:7,small:co.kind==='box'});
+  if(co.kind==='aio')out.push({db:22,tone:2300,pump:1});
+  if(!g.igpu){const gl=g.tdp/(Math.max(2,g.slots)*100);const zero=!load&&g.score>=20;
+   if(!zero)out.push({db:load?24+gl*12+(g.fans===1?3:0):25,rpm:load?1000+gl*1300:900,blades:9,small:g.fans===1})}
+  out.push({db:22+((k.fanN||0)+1)*1.5-(load?0:2),rpm:load?1000:750,blades:7});
+  out.push({db:20,rpm:600,blades:7}); // блок питания
+  return out;
+ }
+ function mkBuf(){const n=ctx.sampleRate*2,b=ctx.createBuffer(1,n,ctx.sampleRate),d=b.getChannelData(0);let br=0;
+  for(let i=0;i<n;i++){const w=Math.random()*2-1;br=(br+.02*w)/1.02;d[i]=w*.45+br*3.2}return b}
+ function clear(){for(const n of nodes){try{n.stop&&n.stop()}catch(e){}try{n.disconnect()}catch(e){}}nodes=[]}
+ function build(){
+  clear();const amp=db=>Math.pow(10,(db-46)/20)*.55,t=ctx.currentTime;
+  for(const p of profile(S,mode==='load')){
+   const a=amp(p.db);
+   if(p.pump){const o=ctx.createOscillator();o.type='triangle';o.frequency.value=p.tone;const g=ctx.createGain();g.gain.value=a*.05;o.connect(g);g.connect(master);o.start();nodes.push(o,g);continue}
+   const s=ctx.createBufferSource();s.buffer=buf;s.loop=true;
+   const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=(p.small?700:350)+p.rpm*.55;f.Q.value=.55;
+   const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200+p.rpm*1.2;
+   const g=ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a,t+.6);
+   s.connect(f);f.connect(lp);lp.connect(g);g.connect(master);s.start(t,Math.random()*1.8);nodes.push(s,f,lp,g);
+   // тон лопастей: частота = обороты × число лопастей
+   const o=ctx.createOscillator();o.type='sine';o.frequency.value=p.rpm/60*p.blades;
+   const lfo=ctx.createOscillator();lfo.frequency.value=.2+Math.random()*.5;const lg=ctx.createGain();lg.gain.value=o.frequency.value*.012;lfo.connect(lg);lg.connect(o.frequency);
+   const og=ctx.createGain();og.gain.setValueAtTime(0,t);og.gain.linearRampToValueAtTime(a*(p.small?.16:.09),t+.6);
+   o.connect(og);og.connect(master);o.start(t);lfo.start(t);nodes.push(o,lfo,lg,og);
+  }
+ }
+ function render(){if(!el)return;const th=thermals(),idle=Math.round(10*Math.log10(profile(S,false).reduce((s,p)=>s+Math.pow(10,p.db/10),0)));
+  el.innerHTML=`<button class="mini ${on?'pri':''}" id="sndBtn" aria-pressed="${on}">${on?'■ Стоп':'▶ Послушать шум'}</button>
+   <div class="seg sm" id="sndMode"><button data-v="load" class="${mode==='load'?'on':''}">В игре · ${th.db} дБ</button><button data-v="idle" class="${mode==='idle'?'on':''}">Простой · ${idle} дБ</button></div>
+   <span class="muted sndhint">${on?'Меняй кулер, видеокарту или корпус — звук изменится сразу.':'Синтезированный звук по твоим деталям. На iPhone выключи беззвучный режим.'}</span>`;
+  $('#sndBtn').onclick=toggle;$('#sndMode').onclick=e=>{const b=e.target.closest('[data-v]');if(!b)return;mode=b.dataset.v;if(on)build();render()};
+ }
+ async function toggle(){
+  if(on){on=false;if(master)master.gain.setTargetAtTime(0,ctx.currentTime,.15);setTimeout(()=>{if(!on)clear()},500);render();return}
+  try{
+   if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;ctx=new AC();buf=mkBuf();
+    const comp=ctx.createDynamicsCompressor();comp.threshold.value=-12;comp.connect(ctx.destination);master=ctx.createGain();master.connect(comp)}
+   await ctx.resume();master.gain.cancelScheduledValues(ctx.currentTime);master.gain.setValueAtTime(.9,ctx.currentTime);
+   on=true;build();render();Plat.haptic();
+  }catch(e){toast('Звук не поддерживается в этом браузере')}
+ }
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&on)toggle()});
+ return {render,update(){if(on)build();render()},get on(){return on}};
+})();
 
 /* ---------- клавиатура ---------- */
 document.addEventListener('keydown',e=>{
@@ -1490,7 +1801,8 @@ Account.init();
    if(cats==='all'||cats.includes('case')){rebuildAll();for(const c of ORDER)groups[c].t0=performance.now()+ORDER.indexOf(c)*90}
    else{for(const c of cats)build(c,true);collect()}
    setRgb()},
-  flash(cat){flashCat=cat;flashT=performance.now()}};
+  flash(cat){flashCat=cat;flashT=performance.now()},
+  snapshot(){try{if(composer)composer.render();else renderer.render(scene,camera);return renderer.domElement.toDataURL('image/png')}catch(e){return null}}};
  rebuildAll();
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{rebuildAll();setRgb()});
 
@@ -1535,7 +1847,7 @@ Account.init();
 
  const easeOutBack=t=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
  let last=performance.now(),hue=0,lk=0;
- function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;
+ function loop(now){requestAnimationFrame(loop);if(!view.offsetParent){last=now;return}const dt=Math.min(.05,(now-last)/1000);last=now;
   explode+=(explodeT-explode)*Math.min(1,dt*5);
   for(const c of ORDER){const gr=groups[c];if(!gr)continue;const w=gr.g;
    const t=Math.max(0,Math.min(1,(now-gr.t0)/750));const e=c==='case'?1-Math.pow(1-t,3):easeOutBack(t);const ev=EXP[c];
@@ -1550,6 +1862,63 @@ Account.init();
   controls.update();
   if(composer)composer.render();else renderer.render(scene,camera)}
  requestAnimationFrame(loop);
+})();
+
+</script>
+<script>
+/* Отдельные страницы внутри одного файла: #privacy, #support, #shots (нужны для App Store) */
+(()=>{
+ const PAGES=['privacy','support','shots'];let shotsInit=false;
+ function route(){const h=location.hash.replace('#','');const pg=PAGES.includes(h)?h:null;
+  document.body.classList.toggle('in-page',!!pg);
+  for(const id of PAGES)document.getElementById('pg-'+id).hidden=id!==pg;
+  if(pg==='shots'&&!shotsInit){shotsInit=true;initShots()}
+  if(pg)window.scrollTo(0,0)}
+ function initShots(){
+
+const W=1290,H=2796;
+const CAPS=['Собери игровой ПК в\u00a03D','FPS в 17 играх ещё до покупки','Сборка под бюджет за минуту','Цены Украины и США · новые и б/у','Температура и шум сборки','Сборки на всех устройствах'];
+const COLS=['#4fb3ff','#ff3d6e','#a259ff','#25e2a0','#ffae2b'];
+let acc=COLS[0];const items=[];
+const $=s=>document.querySelector('#pg-shots '+s);
+$('#shSw').innerHTML=COLS.map((c,i)=>`<button class="sw${i?'':' on'}" data-c="${c}" style="background:${c}" aria-label="Цвет ${c}"></button>`).join('');
+$('#shSw').onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;acc=b.dataset.c;document.querySelectorAll('#pg-shots .sw').forEach(x=>x.classList.toggle('on',x===b));items.forEach(draw)};
+const load=file=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=URL.createObjectURL(file)});
+function rr(x,X,Y,w,h,R){x.beginPath();x.moveTo(X+R,Y);x.arcTo(X+w,Y,X+w,Y+h,R);x.arcTo(X+w,Y+h,X,Y+h,R);x.arcTo(X,Y+h,X,Y,R);x.arcTo(X,Y,X+w,Y,R);x.closePath()}
+function wrap(x,text,maxW){const words=text.split(' '),lines=[];let cur='';for(const w of words){const t=cur?cur+' '+w:w;if(x.measureText(t).width>maxW&&cur){lines.push(cur);cur=w}else cur=t}if(cur)lines.push(cur);return lines}
+function draw(it){
+ const c=it.cv,x=c.getContext('2d');c.width=W;c.height=H;
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0b0f17');g.addColorStop(1,'#05070b');x.fillStyle=g;x.fillRect(0,0,W,H);
+ const r=x.createRadialGradient(W/2,H*.62,60,W/2,H*.62,W*.95);r.addColorStop(0,acc+'55');r.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=r;x.fillRect(0,0,W,H);
+ x.fillStyle='#ffffff';x.font='800 104px Unbounded, system-ui, sans-serif';x.textAlign='center';x.textBaseline='top';
+ const lines=wrap(x,it.caption,W-160).slice(0,3);lines.forEach((l,i)=>x.fillText(l,W/2,170+i*128));
+ const top=170+lines.length*128+90,maxW=W*.82,maxH=H-top-60;
+ const s=Math.min(maxW/it.img.width,maxH/it.img.height),w=it.img.width*s,h=it.img.height*s,X=(W-w)/2,Y=top;
+ x.save();x.shadowColor='rgba(0,0,0,.6)';x.shadowBlur=80;x.shadowOffsetY=30;x.fillStyle='#000';rr(x,X-14,Y-14,w+28,h+28,92);x.fill();x.restore();
+ x.save();rr(x,X,Y,w,h,78);x.clip();x.drawImage(it.img,X,Y,w,h);x.restore();
+ x.strokeStyle='rgba(255,255,255,.14)';x.lineWidth=4;rr(x,X-14,Y-14,w+28,h+28,92);x.stroke();
+ it.out.src=c.toDataURL('image/png');
+}
+async function save(it,i){
+ const blob=await new Promise(r=>it.cv.toBlob(r,'image/png'));const name=`appstore-${i+1}.png`;
+ try{const f=new File([blob],name,{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(e){if(e&&e.name==='AbortError')return}
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000);
+}
+$('#shF').onchange=async e=>{
+ if(document.fonts&&document.fonts.ready)await document.fonts.ready;
+ for(const file of e.target.files){const img=await load(file);if(!img)continue;
+  const i=items.length,it={img,caption:CAPS[i%CAPS.length],cv:document.createElement('canvas')};
+  const el=document.createElement('div');el.className='item';
+  el.innerHTML=`<img alt="Скриншот ${i+1} для App Store"><textarea aria-label="Подпись">${it.caption}</textarea><div class="row"><button class="pri">Сохранить</button><button data-del>Убрать</button></div>`;
+  it.out=el.querySelector('img');el.querySelector('textarea').oninput=ev=>{it.caption=ev.target.value;draw(it)};
+  el.querySelector('.pri').onclick=()=>save(it,items.indexOf(it));
+  el.querySelector('[data-del]').onclick=()=>{items.splice(items.indexOf(it),1);el.remove()};
+  items.push(it);$('#shList').appendChild(el);draw(it)}
+ e.target.value='';
+};
+
+ }
+ window.addEventListener('hashchange',route);route();
 })();
 
 </script>
